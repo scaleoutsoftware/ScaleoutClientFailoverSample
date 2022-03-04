@@ -73,13 +73,13 @@ namespace ScaleoutClientFailoverSample
         }
 
         /// <summary>
-        /// Returns true if the this PollyClient instance it currently accessing
+        /// Returns true if this PollyClient instance it currently accessing
         /// the backup cache due to a connectivity failure.
         /// </summary>
         public bool IsFailedOver => _breaker.CircuitState == CircuitState.Open;
 
         /// <summary>
-        /// Issues a ScaleOut request agains a primary ScaleOut cache, or, if the primary is unavailable, against a failover cache.
+        /// Issues a ScaleOut request against a primary ScaleOut cache, or, if the primary is unavailable, against a failover cache.
         /// </summary>
         /// <param name="cacheAccessFunc">A function returning a <see cref="CacheResponse{TKey, TValue}"/></param>
         /// <returns>The CacheResponse from the wrapped call.</returns>

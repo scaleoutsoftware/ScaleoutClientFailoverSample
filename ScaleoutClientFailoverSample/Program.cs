@@ -41,7 +41,7 @@ namespace ScaleoutClientFailoverSample
             );
 
 
-            // Wrap cache accesses in a DoScaleoutRequest() request call if failover is needed.
+            // Wrap cache accesses in a DoScaleoutRequest() call if failover is needed.
             var response = pollyClient.DoScaleoutRequest(cache => cache.Add("key1", "value1"));
             response = pollyClient.DoScaleoutRequest(cache => cache.Read("key1"));
 
