@@ -67,7 +67,7 @@ namespace ScaleoutClientFailoverSample
                           .CircuitBreaker<CacheResponse<TKey, TValue>>(
                             handledEventsAllowedBeforeBreaking: 1,
                             durationOfBreak: failoverDuration,
-                            onBreak: (r, t) => Debug.WriteLine($"Failed over to backup cache due to connectivity error: {r.Exception.Message}"),
+                            onBreak: (r, t) => Debug.WriteLine($"Failed over to backup cache due to connectivity error: {r?.Exception?.Message}"),
                             onReset: () => Debug.WriteLine("Resumed access to primary cache.")
                           );
         }
