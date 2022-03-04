@@ -81,7 +81,7 @@ namespace ScaleoutClientFailoverSample
         /// <summary>
         /// Issues a ScaleOut request against a primary ScaleOut cache, or, if the primary is unavailable, against a failover cache.
         /// </summary>
-        /// <param name="cacheAccessFunc">A function returning a <see cref="CacheResponse{TKey, TValue}"/></param>
+        /// <param name="cacheAccessFunc">A wrapped Cache access call that uses the supplied Cache argument and returns a <see cref="CacheResponse{TKey, TValue}"/>.</param>
         /// <returns>The CacheResponse from the wrapped call.</returns>
         /// <example><code>
         /// var response = pollyClient.DoScaleoutRequest(cache => cache.Read("key1"));
